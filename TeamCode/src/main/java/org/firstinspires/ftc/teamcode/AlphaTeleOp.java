@@ -4,28 +4,20 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
 public class AlphaTeleOp extends OpMode {
-    DcMotor leftMotorFront;
-    DcMotor leftMotorBack;
-    DcMotor rightMotorFront;
-    DcMotor rightMotorBack;
+    Robot robot;
     double rightPower;
     double leftPower;
+    final double CLOSE_POSITION = 0;
+    final double OPEN_POSITION = 1;
 
 
     @Override
     public void init() {
-        leftMotorFront = hardwareMap.get(DcMotor.class, "leftMotorFront");
-        leftMotorBack = hardwareMap.get(DcMotor.class, "leftMotorBack");
-        rightMotorFront = hardwareMap.get(DcMotor.class, "rightMotorFront");
-        rightMotorBack = hardwareMap.get(DcMotor.class, "rightMotorBack");
-
-        leftMotorFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        leftMotorBack.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightMotorFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightMotorBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        robot = new Robot(hardwareMap);
 
         telemetry.addLine("Iggy was here");
 
@@ -37,11 +29,21 @@ public class AlphaTeleOp extends OpMode {
         rightPower = -gamepad1.left_stick_y - gamepad1.right_stick_x;
         leftPower = -gamepad1.left_stick_y + gamepad1.right_stick_x;
 
+        if (gamepad1.a) {
+            robot.leftGripper.setPosition(OPEN_POSITION);
+            robot.rightGripper.setPosition(OPEN_POSITION);
+        }
+        else if (gamepad1.b) {
+            robot.leftGripper.setPosition(CLOSE_POSITION);
+            robot.rightGripper.setPosition(CLOSE_POSITION);
+        }
+
         // POV Drive
-        leftMotorFront.setPower(leftPower);
-        rightMotorFront.setPower(rightPower);
-        leftMotorBack.setPower(leftPower);
-        rightMotorBack.setPower(rightPower);
+        robot.leftMotorFront.setPower(leftPower);
+        robot.rightMotorFront.setPower(rightPower);
+        robot.leftMotorBack.setPower(leftPower);
+        robot.rightMotorBack.setPower(rightPower);
+
 
         telemetry.addData("leftMotor", leftPower);
         telemetry.addData("rightMotor", rightPower);

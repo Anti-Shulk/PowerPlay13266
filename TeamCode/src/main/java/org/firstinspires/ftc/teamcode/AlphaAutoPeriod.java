@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+@Autonomous
 public class AlphaAutoPeriod extends LinearOpMode {
 
     DcMotor leftMotor;
@@ -29,9 +31,6 @@ public class AlphaAutoPeriod extends LinearOpMode {
         movingMotor(-0.25, -0.25);
         stopMotor();
 
-        while(opModeIsActive()) {
-
-        }
     }
 
     void movingMotor(double leftPower, double rightPower) {
