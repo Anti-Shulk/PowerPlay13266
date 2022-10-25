@@ -18,10 +18,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.constants.DriveConstants;
 import org.firstinspires.ftc.teamcode.util.BetterGamepad;
 import org.firstinspires.ftc.teamcode.util.CommandSchedulerWrapper;
-import org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.MecanumDriveSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.TelemetrySubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.GripperSubsystem;
+import org.firstinspires.ftc.teamcode.subsystems.Lift;
+import org.firstinspires.ftc.teamcode.subsystems.MecanumDrive;
+import org.firstinspires.ftc.teamcode.subsystems.TelemetryManager;
+import org.firstinspires.ftc.teamcode.subsystems.Gripper;
 
 @TeleOp(name = "Main TeleOP")
 public class TeleOPMain extends CommandOpMode {
@@ -33,18 +33,18 @@ public class TeleOPMain extends CommandOpMode {
 
         CommandSchedulerWrapper command = new CommandSchedulerWrapper();
 
-        MecanumDriveSubsystem drive = new MecanumDriveSubsystem(this);
+        MecanumDrive drive = new MecanumDrive(this);
 
-        LiftSubsystem lift = new LiftSubsystem(this);
-        GripperSubsystem trapdoor = new GripperSubsystem(this);
+        Lift lift = new Lift(this);
+        Gripper trapdoor = new Gripper(this);
 
 
-        TelemetrySubsystem telemetrySubsystem = new TelemetrySubsystem(
+        TelemetryManager telemetryManager = new TelemetryManager(
                 telemetry,
                 drive,
                 lift);
 
-        command.addDefault(() -> telemetrySubsystem.periodic(driver, operator));
+        command.addDefault(() -> telemetryManager.periodic(driver, operator));
 
         /*
          *

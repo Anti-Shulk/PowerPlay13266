@@ -1,11 +1,11 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
-import static org.firstinspires.ftc.teamcode.subsystems.GripperSubsystem.TrapdoorConstants.*;
+import static org.firstinspires.ftc.teamcode.subsystems.Gripper.TrapdoorConstants.*;
 import com.arcrobotics.ftclib.hardware.ServoEx;
 import com.arcrobotics.ftclib.hardware.SimpleServo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-public class GripperSubsystem extends HardwareSubsystem {
+public class Gripper extends Hardware {
 
     private final ServoEx trapdoor;
 
@@ -25,7 +25,7 @@ public class GripperSubsystem extends HardwareSubsystem {
         }
     }
 
-    public GripperSubsystem(OpMode opMode) {
+    public Gripper(OpMode opMode) {
         super(opMode);
         trapdoor = new SimpleServo(hardwareMap, hardware.ID, hardware.MIN_ANGLE, hardware.MAX_ANGLE);
         trapdoor.setInverted(hardware.REVERSED);

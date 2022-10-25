@@ -6,10 +6,10 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-public abstract class HardwareSubsystem extends SubsystemBase {
+public abstract class Hardware extends SubsystemBase {
     protected static Telemetry telemetry;
     protected static HardwareMap hardwareMap;
-    public HardwareSubsystem(OpMode opMode) {
+    public Hardware(OpMode opMode) {
         telemetry = opMode.telemetry;
         hardwareMap = opMode.hardwareMap;
         initializeConstants();

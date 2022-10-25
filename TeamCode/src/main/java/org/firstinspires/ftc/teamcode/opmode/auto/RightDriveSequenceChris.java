@@ -7,9 +7,9 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.subsystems.pipelines.AprilTagDetectionPipeline;
-import org.firstinspires.ftc.teamcode.subsystems.GripperSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.MecanumDriveSubsystem;
+import org.firstinspires.ftc.teamcode.subsystems.Gripper;
+import org.firstinspires.ftc.teamcode.subsystems.Lift;
+import org.firstinspires.ftc.teamcode.subsystems.MecanumDrive;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 import org.openftc.apriltag.AprilTagDetection;
 import org.openftc.easyopencv.OpenCvCamera;
@@ -22,9 +22,9 @@ public class RightDriveSequenceChris extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        MecanumDriveSubsystem drive = new MecanumDriveSubsystem(this);
-        LiftSubsystem lift = new LiftSubsystem(this);
-        GripperSubsystem claw = new GripperSubsystem(this);
+        MecanumDrive drive = new MecanumDrive(this);
+        Lift lift = new Lift(this);
+        Gripper claw = new Gripper(this);
 
 
 

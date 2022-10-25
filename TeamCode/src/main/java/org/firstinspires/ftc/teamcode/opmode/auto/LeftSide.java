@@ -7,10 +7,10 @@ import com.acmerobotics.roadrunner.trajectory.constraints.TrajectoryVelocityCons
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.subsystems.GripperSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.MecanumDriveSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.VisionSubsystem;
+import org.firstinspires.ftc.teamcode.subsystems.Gripper;
+import org.firstinspires.ftc.teamcode.subsystems.Lift;
+import org.firstinspires.ftc.teamcode.subsystems.MecanumDrive;
+import org.firstinspires.ftc.teamcode.subsystems.Vision;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @Autonomous
@@ -27,10 +27,10 @@ public class LeftSide extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        MecanumDriveSubsystem drive = new MecanumDriveSubsystem(this);
-        VisionSubsystem vision = new VisionSubsystem(this);
-        LiftSubsystem lift = new LiftSubsystem(this);
-        GripperSubsystem gripper = new GripperSubsystem(this);
+        MecanumDrive drive = new MecanumDrive(this);
+        Vision vision = new Vision(this);
+        Lift lift = new Lift(this);
+        Gripper gripper = new Gripper(this);
 
         telemetry.setMsTransmissionInterval(50);
         drive.setPoseEstimate(startPose);

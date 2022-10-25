@@ -5,10 +5,9 @@ import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.subsystems.GripperSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.HardwareSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.MecanumDriveSubsystem;
+import org.firstinspires.ftc.teamcode.subsystems.Gripper;
+import org.firstinspires.ftc.teamcode.subsystems.Lift;
+import org.firstinspires.ftc.teamcode.subsystems.MecanumDrive;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @Autonomous
@@ -16,9 +15,9 @@ public class LeftDriveSequenceChris extends LinearOpMode {
     Pose2d startPose = new Pose2d(-35, -62, Math.toRadians(-90));
     @Override
     public void runOpMode() throws InterruptedException {
-        MecanumDriveSubsystem drive = new MecanumDriveSubsystem(this);
-        LiftSubsystem lift = new LiftSubsystem(this);
-        GripperSubsystem claw = new GripperSubsystem(this);
+        MecanumDrive drive = new MecanumDrive(this);
+        Lift lift = new Lift(this);
+        Gripper claw = new Gripper(this);
 
 
         Pose2d StartPose = new Pose2d(-35, -62, Math.toRadians(-90));

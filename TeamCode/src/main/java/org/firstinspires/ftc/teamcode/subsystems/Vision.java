@@ -11,7 +11,7 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 
 import java.util.ArrayList;
 
-public class VisionSubsystem extends HardwareSubsystem {
+public class Vision extends Hardware {
     public AprilTagDetection tagOfInterest = null;
 
     private OpenCvCamera camera;
@@ -59,7 +59,7 @@ public class VisionSubsystem extends HardwareSubsystem {
         }
     }
 
-    public VisionSubsystem(OpMode opMode) {
+    public Vision(OpMode opMode) {
         super(opMode);
     }
 

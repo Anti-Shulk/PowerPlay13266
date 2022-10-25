@@ -1,8 +1,5 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
-import static org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem.LiftMotorConstants;
-import static org.firstinspires.ftc.teamcode.subsystems.LiftSubsystem.LiftServoConstants;
-
 import com.arcrobotics.ftclib.hardware.ServoEx;
 import com.arcrobotics.ftclib.hardware.SimpleServo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -10,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-public class LiftSubsystem extends HardwareSubsystem {
+public class Lift extends Hardware {
     DcMotorEx leftLiftMotor;
     DcMotorEx rightLiftMotor;
     ServoEx leftLiftServo;
@@ -87,7 +84,7 @@ public class LiftSubsystem extends HardwareSubsystem {
         }
     }
 
-    public LiftSubsystem(OpMode opMode) {
+    public Lift(OpMode opMode) {
         super(opMode);
         leftLiftMotor = hardwareMap.get(DcMotorEx.class, LiftMotorConstants.hardware.LEFT_ID);
         leftLiftMotor.setDirection(LiftMotorConstants.hardware.LEFT_REVERSED ? DcMotorSimple.Direction.FORWARD : DcMotorSimple.Direction.REVERSE);

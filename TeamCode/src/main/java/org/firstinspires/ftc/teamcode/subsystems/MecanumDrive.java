@@ -27,7 +27,6 @@ import androidx.annotation.NonNull;
 
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.roadrunner.drive.DriveSignal;
-import com.acmerobotics.roadrunner.drive.MecanumDrive;
 import com.acmerobotics.roadrunner.followers.HolonomicPIDVAFollower;
 import com.acmerobotics.roadrunner.followers.TrajectoryFollower;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
@@ -67,7 +66,7 @@ import java.util.List;
  * Simple mecanum drive hardware implementation for REV hardware.
  */
 @Config
-public class MecanumDriveSubsystem extends MecanumDrive implements Subsystem {
+public class MecanumDrive extends com.acmerobotics.roadrunner.drive.MecanumDrive implements Subsystem {
 
     /** FTC Lib Subsystem stuff (this stuff is defined in SubsystemBase,
      * but since we are already extending a class, we cant extend it
@@ -114,10 +113,10 @@ public class MecanumDriveSubsystem extends MecanumDrive implements Subsystem {
     // This is to make an FtcLib mecanum drive
 //    com.arcrobotics.ftclib.drivebase.MecanumDrive controllerMecanumDrive;
 
-    public MecanumDriveSubsystem(LinearOpMode opMode) {
+    public MecanumDrive(LinearOpMode opMode) {
         super(kV, kA, kStatic, TRACK_WIDTH, TRACK_WIDTH, LATERAL_MULTIPLIER);
         this.opMode = opMode;
-        HardwareSubsystem.initializeConstants();
+        Hardware.initializeConstants();
 
         CommandScheduler.getInstance().registerSubsystem(this);
 
